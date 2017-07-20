@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <script>
+      var name = document.getElementById("name").value;
+      var item = document.getElementById("item").value;
+      var color = document.getElementById("color").value;
+      var bold = document.getElementById("bold").value;
+      var obf = document.getElementById("obf").value;
+      var strike = document.getElementById("strike").value;
+      var under = document.getElementById("under").value;
+      var italic = document.getElementById("italic").value;
+      document.getElementById("output").innerHTML = "give @s command_block 1 0 {BlockEntityTag:{Command:\"give @p " + item + " 1 0 {display:{Name:\\\"§" + color + name + "\\\"}}\"}}";
+    </script>
 <body>
 <h2>Colored Names</h2>
 <fieldset>
+<noscript><b>You need JavaScript</b></noscript>
 <legend>Format your name:</legend>
 Name: <input type="text" id="name"></input><br>
 Item: <input type="text" id="item"></input><br>
@@ -29,6 +42,10 @@ Obfuscated <input type="checkbox" id="obf"><br>
 Strikethrough <input type="checkbox" id="strike"><br>
 Underline <input type="checkbox" id="under"><br>
 Italic <input type="checkbox" id="italic"><br>
-</fieldset>
+</fieldset><br>
+<button type="button" onclick="calc()">
+<br>
+
+<output><pre id="output"></pre><output>
 </body>
 </html>
