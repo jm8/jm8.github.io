@@ -12,6 +12,22 @@
       var strike = document.getElementById("strike").value;
       var under = document.getElementById("under").value;
       var italic = document.getElementById("italic").value;
+        var formatting = "";
+        if(bold==true){
+          formatting = "&617;l";
+        }
+        if(obf==true){
+          formatting = formatting + "&617;k";
+        }
+        if(strike==true){
+          formatting = formatting + "&617;m";
+        }
+        if(under==true){
+          formatting = formatting + "&617;n";
+        }
+        if(italic==true){
+          formatting = formatting + "&617;o";
+        }
         document.getElementById("output").innerHTML = "give @s command_block 1 0 {BlockEntityTag:{Command:\"give @p " + item + " 1 0 {display:{Name:\\\"&167;" + color + name + "\\\"}}\"}}";
       }
     </script>
@@ -21,7 +37,7 @@
 <noscript><b>You need JavaScript</b></noscript>
 <legend>Format your name:</legend>
 Name: <input type="text" id="name"></input><br>
-Item: <input type="text" id="item"></input><br>
+Item: <input type="text" id="item"></input><br>Hi0
 Color: <select id="color">
 <option value="0">Black</option>
 <option value="1">Dark Blue</option>
