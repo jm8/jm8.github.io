@@ -10,7 +10,9 @@
       var strike = document.getElementById("strike").value;
       var under = document.getElementById("under").value;
       var italic = document.getElementById("italic").value;
-      document.getElementById("output").innerHTML = "give @s command_block 1 0 {BlockEntityTag:{Command:\"give @p " + item + " 1 0 {display:{Name:\\\"§" + color + name + "\\\"}}\"}}";
+      function calc() {
+        document.getElementById("output").innerHTML = "give @s command_block 1 0 {BlockEntityTag:{Command:\"give @p " + item + " 1 0 {display:{Name:\\\"§" + color + name + "\\\"}}\"}}";
+      }
     </script>
 <body>
 <h2>Colored Names</h2>
@@ -43,7 +45,7 @@ Strikethrough <input type="checkbox" id="strike"><br>
 Underline <input type="checkbox" id="under"><br>
 Italic <input type="checkbox" id="italic"><br>
 </fieldset><br>
-<button type="button" onclick="calc()">
+<button type="button" onclick="calc()" value="Genarate Command">
 <br>
 
 <output><pre id="output"></pre><output>
