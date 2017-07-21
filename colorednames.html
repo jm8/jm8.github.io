@@ -7,6 +7,8 @@
         var name = document.getElementById("name").value;
       var item = document.getElementById("item").value;
       var color = document.getElementById("color").value;
+        var quantity = document.getElementById("quantity").value;
+      var data = document.getElementById("data").value;
       var bold = document.getElementById("bold").checked;
       var obf = document.getElementById("obf").checked;
       var strike = document.getElementById("strike").checked;
@@ -28,7 +30,33 @@
         if(italic==true){
           formatting = formatting + "§o";
         }
-        document.getElementById("output").innerHTML = "give @s command_block 1 0 {BlockEntityTag:{Command:\"give @p " + item + " 1 0 {display:{Name:\\\"§" + color + formatting + name + "\\\"}}\"}}";
+        
+        var namel = document.getElementById("namel").value;
+      var colorl = document.getElementById("colorl").value;
+      var boldl = document.getElementById("boldl").checked;
+      var obfl = document.getElementById("obfl").checked;
+      var strikel = document.getElementById("strikel").checked;
+      var underl = document.getElementById("underl").checked;
+      var italicl = document.getElementById("italicl").checked;
+        var formattingl = "";
+        if(boldl==true){
+          formattingl = "§l";
+        }
+        if(obfl==true){
+          formattingl = formattingl + "§k";
+        }
+        if(strikel==true){
+          formattingl = formattingl + "§m";
+        }
+        if(underl==true){
+          formattingl = formattingl + "§n";
+        }
+        if(italicl==true){
+          formattingl = formattingl + "§o";
+        }
+        document.getElementById("output").innerHTML = "<s>Give Command Block:</s> give @s command_block 1 0 {BlockEntityTag:{Command:\"give @p " + item + " " + quantity + " " + data +
+         " {display:{Name:\\\"§" + color + formatting + name + "\\\", Lore: \\\"§" + colorl + formattingl + namel + "\\\"}}}\"}}<br><br>" + 
+          "give @p " + item + " " + quantity + " " + data + " {display:{Name:\"§" + color + formatting + name + "\", Lore: \"§" + colorl + formattingl + namel + "\"};
       }
     </script>
 <body>
@@ -37,7 +65,7 @@
 <noscript><b>You need JavaScript</b></noscript>
 <legend>Format your name:</legend>
 Name: <input type="text" id="name"></input><br>
-Item: <input type="text" id="item"></input><br>
+  Item: <input type="text" id="item"></input>&nbsp;&nbsp;Quantity: <input type="number" id="quantity">1</input>Data: <input type="number" id="data">0</input><br>
 Color: <select id="color">
 <option value="0">Black</option>
 <option value="1">Dark Blue</option>
@@ -60,7 +88,32 @@ Bold <input type="checkbox" id="bold"><br>
 Obfuscated <input type="checkbox" id="obf"><br>
 Strikethrough <input type="checkbox" id="strike"><br>
 Underline <input type="checkbox" id="under"><br>
-Italic <input type="checkbox" id="italic"><br>
+Italic <input type="checkbox" id="italic"><br><br><br>
+Lore: <input type="text" id="namel"></input><br>
+Color: <select id="colorl">
+<option value="0">Black</option>
+<option value="1">Dark Blue</option>
+<option value="2">Dark Green</option>
+<option value="3">Dark Aqua</option>
+<option value="4">Dark Red</option>
+<option value="5">Dark Purple</option>
+<option value="6">Gold (Orange)</option>
+<option value="7">Gray</option>
+<option value="8">Dark Gray</option>
+<option value="9">Blue</option>
+<option value="a">Green</option>
+<option value="b">Aqua</option>
+<option value="c">Red</option>
+<option value="d">Light Purple</option>
+<option value="e">Yellow</option>
+<option value="f">White</option>
+</select><br>
+Bold <input type="checkbox" id="boldl"><br>
+Obfuscated <input type="checkbox" id="obfl"><br>
+Strikethrough <input type="checkbox" id="strikel"><br>
+Underline <input type="checkbox" id="underl"><br>
+Italic <input type="checkbox" id="italicl"><br>
+</fieldset><br>
 </fieldset><br>
   <button type="button" onclick="calc()">Generate Command</button>
 <br>
