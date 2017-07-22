@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clone Split</title>
+    <script type="text/javascript">
+    function calc(){
+        document.getElementById('output').innerHTML = "";
+        var x1 = parseInt(document.getElementById("x1").value);
+        var y1 = parseInt(document.getElementById("y1").value);
+        var z1 = parseInt(document.getElementById("z1").value);
+        var x2 = parseInt(document.getElementById("x2").value);
+        var y2 = parseInt(document.getElementById("y2").value);
+        var z2 = parseInt(document.getElementById("z2").value);
+        var xDest = parseInt(document.getElementById("xDest").value);
+        var yDest = parseInt(document.getElementById("yDest").value);
+        var zDest = parseInt(document.getElementById("zDest").value);
+        var max = 32768;
+        var xzplaneArea = (x2-x1+1)*(z2-z1+1);
+        var splitheight = Math.floor(max/xzplaneArea);
+
+        if (splitheight == 0) {
+            alert("this is dumb dont annoy me ");
+            return;
+        }
+
+        var ymins = [y1];
+        while (ymins[ymins.length-1]+splitheight<=y2) {
+            ymins.push(ymins[ymins.length-1]+splitheight);
+            //alert("yamo" + ymins[ymins.length-1] + "anddoisjoi" +splitheight);
+        }
+
+        for (var i = 0; i < ymins.length; i++) {
+            var top = ymins[i]+splitheight-1;
+            if (i == ymins.length-1) {
+                top = Math.min(y2, top);
+            }
+            //alert("from " + ymins[i] + " to " + top);
+            document.getElementById("output").innerHTML = document.getElementById("output").innerHTML + "<br>clone " + x1 + " "  + ymins[i] + " " + z1 + " " + x2 + " " + top + " " + z2 + " " + xDest + " " + ((ymins[i]-y1)+yDest) + " " + zDest; 
+        }
+    }
+    </script>
+</head>
+<body>
+<h2>Clone Split</h2>
+    <fieldset>
+        <legend>Enter Coordinates</legend>
+        Enter first coordinates: X <input type="number" id="x1"> Y <input type="number" id="y1"> Z <input type="number" id="z1"><br>
+        Enter second coordinates: X <input type="number" id="x2"> Y <input type="number" id="y2"> Z <input type="number" id="z2"><br>
+    </fieldset><br>
+    <fieldset>
+        <legend>Enter Destination</legend>
+        Enter destination coordinates: X <input type="number" id="xDest"> Y <input type="number" id="yDest"> Z <input type="number" id="zDest"><br>
+    </fieldset><br>
+
+    <button onclick="calc()">Generate</button>
+    <pre id="output"></pre>
+</body>
+</html>
