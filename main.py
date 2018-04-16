@@ -43,5 +43,5 @@ if imgsuccess:
 			else:
 				output += '0'
 	print "Here is your file:"
-	with open(argv[1].split('.')[0]+'.txt', 'w') as f:
+	with open(argv[1].split('.')[0]+'.alg', 'w') as f:
 		f.write(output)
